@@ -21,7 +21,19 @@ unsafe extern "C" fn effect_attack13_fusion(agent: &mut L2CAgentBase) {
             agent.module_accessor,
             *FIGHTER_CLOUD_INSTANCE_WORK_ID_FLAG_LIMIT_BREAK,
         ) {
-            macros::EFFECT_FOLLOW_WORK(agent, *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE, Hash40::new("haver"), 0, 0, 0, 0, 0, 0, 1, true);
+            macros::EFFECT_FOLLOW_WORK(
+                agent,
+                *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB,
+                Hash40::new("haver"),
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                true,
+            );
             macros::LAST_EFFECT_SET_OFFSET_TO_CAMERA_FLAT(agent, 0.4);
             macros::AFTER_IMAGE4_ON_arg29(
                 agent,
@@ -118,7 +130,7 @@ unsafe extern "C" fn effect_attack13_fusion(agent: &mut L2CAgentBase) {
         macros::AFTER_IMAGE_OFF(agent, 4);
         macros::EFFECT_OFF_KIND_WORK(
             agent,
-            *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE,
+            *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB,
             false,
             true,
         );
@@ -127,6 +139,10 @@ unsafe extern "C" fn effect_attack13_fusion(agent: &mut L2CAgentBase) {
 
 pub fn install() {
     Agent::new("cloud")
-        .effect_acmd("effect_attack13_fusion", effect_attack13_fusion, Priority::Low)
+        .effect_acmd(
+            "effect_attack13_fusion",
+            effect_attack13_fusion,
+            Priority::Low,
+        )
         .install();
 }

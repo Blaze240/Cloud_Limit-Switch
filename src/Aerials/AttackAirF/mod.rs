@@ -40,7 +40,7 @@ unsafe extern "C" fn effect_attackairf_fusion(agent: &mut L2CAgentBase) {
         ) {
             macros::EFFECT_FOLLOW_WORK(
                 agent,
-                *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE,
+                *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB,
                 Hash40::new("haver"),
                 0,
                 0,
@@ -97,7 +97,7 @@ unsafe extern "C" fn effect_attackairf_fusion(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::EFFECT_OFF_KIND_WORK(
             agent,
-            *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE,
+            *FIGHTER_CLOUD_INSTANCE_WORK_ID_INT_EFFECT_KIND_SWORD_FLARE_LB,
             false,
             true,
         );
