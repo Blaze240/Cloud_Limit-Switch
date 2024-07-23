@@ -1,8 +1,8 @@
-# Limit Switch Cloud/EX Mode Cloud
-Skyline plugin that modifies Cloud's effects while in Limit Break form as well as swapping his weapon in Limit Break. Also replaces his weapon during Final Smash. Inspired by Cloud's EX Mode in Dissidia Final Fantasy.
+# Limit Effects Cloud
+Skyline plugin that modifies Cloud's effects while in Limit Break form.
 
 ## General Changes
-* Sword trails are changed to the blue variant during Limit Break for the following moves:
+* Sword trails and swordflare effect are changed to the blue variant during Limit Break for the following moves:
   * Neutral Aerial
   * Up Aerial
   * Back Aerial
@@ -13,13 +13,9 @@ Skyline plugin that modifies Cloud's effects while in Limit Break form as well a
   * Forward Aerial
   * Dash Attack
   * Forward Smash
-### SOLDIER Alt Changes
-* Buster Sword is switched to the Ultima Weapon during Limit Break and Omnislash.
-* Swordflare removed from moves during Limit Break (provides consistency with Ultima Weapon)
 
-### Advent Children Alt Changes
-* Base weapon used is now the main unfused Fusion Sword.
-  * Weapon is switched to the original completed Fusion Sword during Limit Break.
-* Swordflare is removed from most moves at base form.
+# Implementation
+This plugin predominantly rewrites each move's ACMD effect script to include a check if Cloud's Limit Break is active; if it is then the preceding effects will be the swordflare and trail effects used for Limit (which are preexisting due to Limit Cross-Slash utilizing these effects).
 
-Two versions of the mod are available: one which incorporates the weapon switches and another which purely modifies the effects.
+For Forward Aerial, Dash Attack, and Forward Smash, a new effect is pointed to instead since the effects for these moves are unique emitters to these effects rather than the standard sword trail effect used for other moves. Most of the mod's work actually comes from the .eff file modified with EffectConverter, in which the original emitter effects were duplicated and given their own name and entry in the NamcoFile files. The inner textures witih these effect folders were given a unique ID number as well in order to distinguish itself from the preexisting texture used normally in battle.
+
